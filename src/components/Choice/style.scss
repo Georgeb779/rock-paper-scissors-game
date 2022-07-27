@@ -1,0 +1,51 @@
+$block: "choice";
+
+.#{$block} {
+  &__container {
+    @apply rounded-full w-28 h-28  bg-white flex items-center justify-center shadow-xl hover:scale-125 transition-all;
+    box-shadow: inset 0px 8px rgb(63 55 55 / 10%);
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(10deg);
+      }
+    }
+    img {
+      @apply w-10;
+    }
+    &:hover {
+      img {
+        -webkit-animation: linear infinite alternate;
+        -webkit-animation-name: rotate;
+        -webkit-animation-duration: 0.4s;
+        transition: ease-in-out all;
+      }
+    }
+  }
+
+  &__count-down {
+    @apply text-4xl text-game-dark-text;
+  }
+
+  &__1 {
+    @apply translate-y-[-120px] md:translate-y-[-152px];
+  }
+  &__2 {
+    @apply translate-y-[-26px]  translate-x-[125px]  md:translate-x-[150px] ;
+  }
+  &__3 {
+    @apply translate-y-[110px]  translate-x-[85px] md:translate-y-[150px] md:translate-x-[115px];
+  }
+  &__4 {
+    @apply translate-y-[110px]  translate-x-[-70px] md:translate-y-[150px] md:translate-x-[-115px];
+  }
+  &__5 {
+    @apply translate-y-[-26px]  translate-x-[-125px] md:translate-x-[-150px] ;
+  }
+}
+
+.noHover {
+  pointer-events: none;
+}

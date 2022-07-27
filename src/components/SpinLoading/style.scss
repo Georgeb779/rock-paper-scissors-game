@@ -1,0 +1,8 @@
+$block: "spinner";
+.#{$block} {
+  @apply mr-2 w-16 h-16 text-gray-200 animate-spin dark:text-game-header-outline fill-white;
+
+  &__container {
+    @apply h-[130px] flex flex-col justify-center;
+  }
+}

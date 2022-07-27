@@ -1,0 +1,19 @@
+$block: "modal";
+
+.#{$block} {
+  &__container {
+    @apply justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+  }
+
+  &-body__container {
+    @apply p-[20px] w-[345px] md:w-[445px] border-0 rounded-lg shadow-lg relative flex flex-col  bg-white outline-none focus:outline-none;
+  }
+
+  &__close-btn {
+    @apply font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+  }
+
+  &__close-container {
+    @apply flex flex-col items-center justify-center mt-8;
+  }
+}
