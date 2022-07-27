@@ -106,7 +106,7 @@ a {
 }
 
 .attribution {
-  @apply text-center text-white text-sm;
+  @apply text-center text-white text-sm md:text-lg mb-2;
 
   a {
     @apply text-game-paper m-1;
