@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Barlow+Semi+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;0,900;1,700;1,800;1,900&family=Bellefair&family=Manrope:wght@800&display=swap");
+
+$block: "game";
+
+body {
+  @apply max-h-full;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.#{$block} {
+  &__container {
+    @apply flex flex-col items-center  h-screen justify-between;
+    background-image: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  }
+  &__section-container {
+    @apply flex flex-col items-center justify-evenly h-[370px];
+  }
+  &-chooser__container {
+    @apply bg-no-repeat bg-center  flex justify-center items-center flex-col;
+
+    img {
+      @apply max-h-[249px] md:max-h-[400px];
+    }
+  }
+}
+.btn {
+  @apply border-[1px] rounded-xl  tracking-[2.5px]  hover:scale-110 transition-all duration-[600ms];
+  outline: none;
+  box-shadow: none;
+
+  &-primary {
+    @apply text-white text-lg border-white w-36 h-12 hover:text-game-dark-text hover:bg-white;
+  }
+  &-secondary {
+    @apply text-game-dark-text text-lg border-white bg-white w-[8rem] h-[57px] hover:bg-inherit hover:text-white;
+  }
+}
+
+@keyframes box-shadow {
+  0% {
+    box-shadow: inset 0px 8px rgb(63 55 55 / 10%),
+      0px 0px 0px 10px rgb(220 220 220 / 5%),
+      0px 0px 0px 25px rgb(220 220 220 / 6%),
+      0px 0px 0px 35px rgb(220 220 220 / 7%);
+  }
+  100% {
+    box-shadow: inset 0px 8px rgb(63 55 55 / 10%),
+      0px 0px 0px 20px rgb(220 220 220 / 3%),
+      0px 0px 0px 45px rgb(220 220 220 / 4%),
+      0px 0px 0px 65px rgb(220 220 220 / 5%);
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes box-shadow {
+    0% {
+      box-shadow: inset 0px 8px rgb(63 55 55 / 10%),
+        0px 0px 0px 30px rgb(220 220 220 / 5%),
+        0px 0px 0px 80px rgb(220 220 220 / 6%),
+        0px 0px 0px 130px rgb(220 220 220 / 7%);
+    }
+    100% {
+      box-shadow: inset 0px 8px rgb(63 55 55 / 10%),
+        0px 0px 0px 50px rgb(220 220 220 / 3%),
+        0px 0px 0px 100px rgb(220 220 220 / 4%),
+        0px 0px 0px 150px rgb(220 220 220 / 5%);
+    }
+  }
+}
+
+.winner {
+  transition: 1.5s ease all;
+  -webkit-animation: box-shadow 1.5s infinite alternate;
+  animation: box-shadow 1.5s infinite alternate;
+  -moz-animation: box-shadow 1.5s infinite alternate;
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      transform: rotate(10deg);
+    }
+  }
+  img {
+    @apply w-10;
+  }
+  img {
+    -webkit-animation: linear infinite alternate;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 1.5s;
+    transition: ease-in-out all;
+  }
+}
+
+.attribution {
+  @apply text-center text-white text-sm;
+
+  a {
+    @apply text-game-paper m-1;
+  }
+}
