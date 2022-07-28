@@ -30,7 +30,7 @@ export default function ScoreDisplay({
         </div>
 
         {playState && (
-          <div className='game-switcher__container flex flex-col items-center p-4 border-white border-2 rounded-lg '>
+          <div className='game-switcher__container flex flex-col items-center '>
             <span className='text-white mb-3'>Advance Mode</span>
             <Toggle enabled={advanceGameMode} setEnabled={setAdvanceGameMode} />
           </div>
