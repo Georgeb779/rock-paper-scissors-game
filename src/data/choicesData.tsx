@@ -12,12 +12,12 @@ export const choicesData = [
   },
   {
     icon: paperIcon,
-    style: "border-game-rock choice__2 absolute animate-icon",
+    style: "border-game-paper choice__2 absolute animate-icon",
     value: "paper"
   },
   {
     icon: rockIcon,
-    style: "border-game-paper choice__3 absolute animate-icon",
+    style: "border-game-rock choice__3 absolute animate-icon",
     value: "rock"
   },
   {

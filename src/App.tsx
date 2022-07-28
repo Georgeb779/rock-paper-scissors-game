@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import ScoreDisplay from "./components/ScoreDisplay/index";
 import ChoiceScreen from "./components/ChoiceScreen/index";
 import BattleScreen from "./components/BattleScreen/index";
 import Modal from "./components/Modal/index";
+import Toggle from "./components/Toggle/index";
 
 import { playGame } from "./utils/playGame";
 import { playAgain } from "./utils/playAgain";
@@ -15,6 +16,7 @@ import Rules from "./assets/images/image-rules-bonus.svg";
 function App() {
   const [score, setScore] = useState<number>(0);
   const [firstLoad, setFirstLoad] = useState<boolean>(false);
+  const [advanceGameMode, setAdvanceGameMode] = useState(false);
 
   useEffect(() => {
     getScoreFromLocalStorage({ score, setScore, firstLoad });
@@ -66,12 +68,16 @@ function App() {
     <>
       <div className='game__container'>
         <div className='game-result__container'>
-          <ScoreDisplay score={score} />
+          <ScoreDisplay score={score} advanceGameMode={advanceGameMode} />
         </div>
 
         <div className='game__section-container'>
           {playState ? (
-            <ChoiceScreen setChoice={setChoice} setPcChoice={setPcChoice} />
+            <ChoiceScreen
+              setChoice={setChoice}
+              setPcChoice={setPcChoice}
+              advanceGameMode={advanceGameMode}
+            />
           ) : (
             <BattleScreen
               pcChoice={pcChoice}
@@ -84,6 +90,15 @@ function App() {
         </div>
 
         <div className='game-rules__container'>
+          {playState && (
+            <div className='game-switcher__container flex flex-col items-center mb-5 p-4 border-white border-2 rounded-lg '>
+              <span className='text-white mb-3'>Advance Mode</span>
+              <Toggle
+                enabled={advanceGameMode}
+                setEnabled={setAdvanceGameMode}
+              />
+            </div>
+          )}
           <Modal
             modalContent={{ value: Rules, icon: IconClose, btnValue: "RULES" }}
           />
