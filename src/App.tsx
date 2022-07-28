@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ScoreDisplay from "./components/ScoreDisplay/index";
 import ChoiceScreen from "./components/ChoiceScreen/index";
@@ -7,26 +7,18 @@ import Modal from "./components/Modal/index";
 
 import { playGame } from "./utils/playGame";
 import { playAgain } from "./utils/playAgain";
+import { getScoreFromLocalStorage } from "./utils/getScoreFromLocalStorage";
 
 import IconClose from "./assets/images/icon-close.svg";
 import Rules from "./assets/images/image-rules-bonus.svg";
 
 function App() {
   const [score, setScore] = useState<number>(0);
+  const [firstLoad, setFirstLoad] = useState<boolean>(false);
 
-  // if score is different from 0 save it into local storage
   useEffect(() => {
-    if (score !== 0) {
-      localStorage.setItem("score", JSON.stringify(score));
-    }
-  }, [score]);
-
-  // check local storage for score and if score is different update score
-  useEffect(() => {
-    const storedScore = localStorage.getItem("score") as string;
-    if (parseInt(storedScore) !== score && storedScore !== null) {
-      setScore(parseInt(storedScore));
-    }
+    getScoreFromLocalStorage({ score, setScore, firstLoad });
+    setFirstLoad(true);
   }, [score]);
 
   const [choice, setChoice] = useState({
@@ -44,10 +36,8 @@ function App() {
   });
 
   const [playState, setPlayState] = useState(true);
-
-  const [decision, setDecision] = useState("");
-
   const [loading, setLoading] = useState(false);
+  const [decision, setDecision] = useState("");
 
   useEffect(() => {
     if (choice.value !== "") {
