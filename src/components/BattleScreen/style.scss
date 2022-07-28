@@ -3,6 +3,14 @@ $block: "battle-screen";
 .#{$block} {
   &__container {
     @apply grid grid-cols-2 justify-items-center w-[330px] h-[160px] md:w-[600px] mb-[100px] md:mb-[20px];
+
+    .choice__container {
+      @apply md:h-44 md:w-44;
+
+      img {
+        @apply md:w-14;
+      }
+    }
   }
 
   &__decision {
@@ -10,7 +18,10 @@ $block: "battle-screen";
   }
 
   &__decision-title {
-    @apply text-center text-white text-6xl;
+    @apply text-center text-white text-6xl md:text-5xl;
+    h1 {
+      @apply md:mb-4;
+    }
   }
 
   &__human-choice,

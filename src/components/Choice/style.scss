@@ -13,7 +13,7 @@ $block: "choice";
       }
     }
     img {
-      @apply w-10;
+      @apply w-10 md:w-[3rem];
     }
     &:hover {
       img {
@@ -26,14 +26,14 @@ $block: "choice";
   }
 
   &__count-down {
-    @apply text-4xl text-game-dark-text;
+    @apply text-4xl text-game-dark-text md:text-6xl;
   }
 
   &__1 {
     @apply translate-y-[-120px] md:translate-y-[-152px];
   }
   &__2 {
-    @apply translate-y-[-26px]  translate-x-[125px]  md:translate-x-[150px] ;
+    @apply translate-y-[-26px]  translate-x-[125px]  md:translate-x-[150px];
   }
   &__3 {
     @apply translate-y-[110px]  translate-x-[85px] md:translate-y-[150px] md:translate-x-[115px];
@@ -42,7 +42,7 @@ $block: "choice";
     @apply translate-y-[110px]  translate-x-[-70px] md:translate-y-[150px] md:translate-x-[-115px];
   }
   &__5 {
-    @apply translate-y-[-26px]  translate-x-[-125px] md:translate-x-[-150px] ;
+    @apply translate-y-[-26px]  translate-x-[-125px] md:translate-x-[-150px];
   }
 }
 
