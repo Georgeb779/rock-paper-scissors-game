@@ -35,5 +35,5 @@ export const playGame = ({
       setDecision("YOU LOSE!");
     }
     setLoading(false);
-  }, 2999);
+  }, 1500);
 };

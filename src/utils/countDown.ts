@@ -9,5 +9,5 @@ export const countDownFunction = (
       clearInterval(interval);
     }
     setCountDown(count);
-  }, 1000);
+  }, 600);
 };

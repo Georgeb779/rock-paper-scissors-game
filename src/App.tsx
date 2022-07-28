@@ -12,7 +12,22 @@ import IconClose from "./assets/images/icon-close.svg";
 import Rules from "./assets/images/image-rules-bonus.svg";
 
 function App() {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState<number>(0);
+
+  // if score is different from 0 save it into local storage
+  useEffect(() => {
+    if (score !== 0) {
+      localStorage.setItem("score", JSON.stringify(score));
+    }
+  }, [score]);
+
+  // check local storage for score and if score is different update score
+  useEffect(() => {
+    const storedScore = localStorage.getItem("score") as string;
+    if (parseInt(storedScore) !== score && storedScore !== null) {
+      setScore(parseInt(storedScore));
+    }
+  }, [score]);
 
   const [choice, setChoice] = useState({
     value: "",
@@ -74,6 +89,7 @@ function App() {
               decision={decision}
               reset={reset}
               loading={loading}
+              countDown={0}
             />
           )}
         </div>
@@ -93,7 +109,7 @@ function App() {
           >
             Frontend Mentor
           </a>
-           Coded by
+          Coded by
           <a
             target='_blank'
             rel='noopener noreferrer'
