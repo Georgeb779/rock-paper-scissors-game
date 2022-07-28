@@ -4,7 +4,6 @@ import ScoreDisplay from "./components/ScoreDisplay/index";
 import ChoiceScreen from "./components/ChoiceScreen/index";
 import BattleScreen from "./components/BattleScreen/index";
 import Modal from "./components/Modal/index";
-import Toggle from "./components/Toggle/index";
 
 import { playGame } from "./utils/playGame";
 import { playAgain } from "./utils/playAgain";
@@ -12,6 +11,7 @@ import { getScoreFromLocalStorage } from "./utils/getScoreFromLocalStorage";
 
 import IconClose from "./assets/images/icon-close.svg";
 import Rules from "./assets/images/image-rules-bonus.svg";
+import BasicRules from "./assets/images/image-rules.svg";
 
 function App() {
   const [score, setScore] = useState<number>(0);
@@ -68,7 +68,12 @@ function App() {
     <>
       <div className='game__container'>
         <div className='game-result__container'>
-          <ScoreDisplay score={score} advanceGameMode={advanceGameMode} />
+          <ScoreDisplay
+            score={score}
+            advanceGameMode={advanceGameMode}
+            setAdvanceGameMode={setAdvanceGameMode}
+            playState={playState}
+          />
         </div>
 
         <div className='game__section-container'>
@@ -90,17 +95,12 @@ function App() {
         </div>
 
         <div className='game-rules__container'>
-          {playState && (
-            <div className='game-switcher__container flex flex-col items-center mb-5 p-4 border-white border-2 rounded-lg '>
-              <span className='text-white mb-3'>Advance Mode</span>
-              <Toggle
-                enabled={advanceGameMode}
-                setEnabled={setAdvanceGameMode}
-              />
-            </div>
-          )}
           <Modal
-            modalContent={{ value: Rules, icon: IconClose, btnValue: "RULES" }}
+            modalContent={{
+              value: advanceGameMode ? Rules : BasicRules,
+              icon: IconClose,
+              btnValue: "RULES"
+            }}
           />
         </div>
 

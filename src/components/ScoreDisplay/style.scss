@@ -2,7 +2,7 @@ $block: "score-display";
 
 .#{$block} {
   &__container {
-    @apply flex  h-[110px] md:h-[144px] w-[330px] md:w-[600px] p-4 border-white border-2 rounded-lg shadow-md justify-between items-center mt-[60px] md:mt-[40px];
+    @apply flex  h-[110px] md:h-[144px] w-[330px] md:w-[600px] p-4 border-white border-2 rounded-lg shadow-md justify-between items-center mt-[60px] md:mt-[30px];
   }
   &-value__container {
     @apply flex flex-col items-center justify-center bg-white shadow-xl rounded-lg w-20 h-20 md:w-24 md:h-24;
@@ -16,5 +16,9 @@ $block: "score-display";
 
   &-logo__container {
     @apply w-[70px] md:w-32;
+
+    img {
+      @apply w-full p-2;
+    }
   }
 }
