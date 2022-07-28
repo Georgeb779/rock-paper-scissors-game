@@ -7,7 +7,8 @@ export const playGame = ({
   setPlayState,
   setScore,
   setDecision,
-  setLoading
+  setLoading,
+  
 }: PlayGameProps) => {
   setPlayState(false);
   setLoading(true);
