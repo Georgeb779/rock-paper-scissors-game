@@ -89,7 +89,6 @@ function App() {
               decision={decision}
               reset={reset}
               loading={loading}
-              countDown={0}
             />
           )}
         </div>
